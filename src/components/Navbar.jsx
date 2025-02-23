@@ -1,17 +1,43 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa"; // Import icons for menu toggle
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <nav className="bg-gray-900 text-white p-4 fixed w-full top-0 z-50">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold">LINGALA RAJESH</h1>
-        <div className="space-x-6">
-          <Link to="/" className="hover:text-gray-400">Home</Link>
-          <Link to="/about" className="hover:text-gray-400">About</Link>
-          <Link to="/projects" className="hover:text-gray-400">Projects</Link>
-          <Link to="/certificates" className="hover:text-gray-400">Certificates</Link>
+    <nav className="bg-gray-900 text-white fixed w-full top-0 z-50 shadow-md">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        
+        {/* Brand Name */}
+        <Link to="/" className="text-2xl font-extrabold tracking-wide text-[#64ffda]">
+          LINGALA RAJESH
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 text-lg">
+          <Link to="/" className="hover:text-[#64ffda] transition">Home</Link>
+          <Link to="/about" className="hover:text-[#64ffda] transition">About</Link>
+          <Link to="/projects" className="hover:text-[#64ffda] transition">Projects</Link>
+          <Link to="/certificates" className="hover:text-[#64ffda] transition">Certificates</Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden text-2xl" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="md:hidden flex flex-col bg-gray-900 text-center py-4 space-y-4">
+          <Link to="/" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/about" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/projects" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Projects</Link>
+          <Link to="/certificates" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Certificates</Link>
+        </div>
+      )}
     </nav>
   );
 };

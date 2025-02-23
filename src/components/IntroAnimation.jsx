@@ -1,26 +1,33 @@
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import "./IntroAnimation.css";
 
-const IntroAnimation = ({ onComplete }) => {
-  const [show, setShow] = useState(true);
+const IntroAnimation = ({ onFinish }) => {
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setShow(false);
-      onComplete(); // Notify parent when animation is done
-    }, 3000); // Duration of animation
-  }, [onComplete]);
+    const hasVisited = localStorage.getItem("hasVisited");
+    if (hasVisited) {
+      onFinish(); // Skip animation if already visited
+    } else {
+      setTimeout(() => {
+        setIsVisible(false);
+        localStorage.setItem("hasVisited", "true"); // Save visit status
+        onFinish();
+      }, 3000); // Animation duration
+    }
+  }, [onFinish]);
 
-  if (!show) return null;
+  if (!isVisible) return null;
 
   return (
     <motion.div
+      className="intro-container"
       initial={{ opacity: 1, scale: 1 }}
-      animate={{ opacity: 0, scale: 5 }}
-      transition={{ duration: 1.5, ease: "easeOut" }}
-      className="fixed inset-0 flex items-center justify-center bg-black text-white text-4xl md:text-6xl font-bold z-50"
+      animate={{ opacity: 0, scale: 1.2 }}
+      transition={{ duration: 3.5 }}
     >
-      Lingala Rajesh
+      <h1 className="intro-text">Welcome to <br/>Rajesh Lingala's Portfolio</h1>
     </motion.div>
   );
 };
