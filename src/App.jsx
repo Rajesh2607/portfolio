@@ -1,27 +1,16 @@
-import React, { useState } from "react";
-import IntroAnimation from "./components/IntroAnimation";
-import Homepage from "./components/Homepage";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Homepage.jsx";  // Ensure correct file extension
+import About from "./components/About.jsx";
 
-const App = () => {
-  const [showIntro, setShowIntro] = useState(true);
-
+function App() {
   return (
-    <>
-      {showIntro ? (
-        <IntroAnimation onFinish={() => setShowIntro(false)} />
-      ) : (
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <br />
-          <Homepage />
-          <br />
-          <Footer />
-        </div>
-      )}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
 export default App;
