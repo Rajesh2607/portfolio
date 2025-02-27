@@ -17,7 +17,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8 text-lg">
           <Link to="/" className="hover:text-[#64ffda] transition">Home</Link>
-          <Link to="/About.jsx" className="hover:text-[#64ffda] transition">About</Link>
+          <Link to="/Blog.jsx" className="hover:text-[#64ffda] transition">Blog</Link>
           <Link to="/projects" className="hover:text-[#64ffda] transition">Projects</Link>
           <Link to="/certificates" className="hover:text-[#64ffda] transition">Certificates</Link>
         </div>
@@ -33,7 +33,7 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden flex flex-col bg-gray-900 text-center py-4 space-y-4">
           <Link to="/" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/About" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/Blog" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Blog</Link>
           <Link to="/projects" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Projects</Link>
           <Link to="/certificates" className="hover:text-[#64ffda] transition" onClick={() => setIsOpen(false)}>Certificates</Link>
         </div>

@@ -4,20 +4,14 @@ const Homepage = () => {
   return (
     <div className="w-full bg-blue-900 text-white">
       {/* Hero Section */}
-      <section className="h-screen flex flex-col items-center justify-center text-center relative bg-[#0A192F] text-white">
-  {/* Profile Image */}
-  <img
-    src="https://media.licdn.com/dms/image/v2/D5603AQHuipcZfSkjCA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1726917248159?e=1746057600&v=beta&t=SZMUQoFc75YL9MpJGVqTUQEik8nEExuYkpTlMSBIFHA" // Replace with your actual image URL
-    alt="Rajesh Lingala"
-    className="w-40 h-40 rounded-full border-4 border-white shadow-lg mb-4"
-  />
+      <section className="h-screen flex items-center justify-center bg-blue-800 text-white p-10">
+  {/* Left Section: Name & Profession */}
+  <div className="flex-1 text-left pl-16">
+    <h1 className="text-5xl font-bold tracking-wide">LINGALA RAJESH</h1>
+    <p className="text-xl mt-2 text-gray-300">UX Designer || Cloud and DevOps Learner</p>
 
-  {/* Name & Profession */}
-  <h1 className="text-6xl font-bold tracking-wide">Rajesh Lingala</h1>
-  <p className="text-2xl mt-2 text-gray-300">Full Stack Developer</p>
-
-  {/* Social Media Links */}
-  <div className="flex gap-6 mt-6">
+    {/* Placeholder for Skill Boxes */}
+    <div className="flex gap-6 mt-6">
     <a href="https://github.com/Rajesh2607" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-700 rounded-full hover:bg-gray-600 transition">
       <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" className="w-6 h-6" />
     </a>
@@ -28,18 +22,27 @@ const Homepage = () => {
       <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" className="w-6 h-6" />
     </a>
   </div>
+  </div>
 
-  {/* White Subtraction Gap Effect */}
-  <div className="absolute bottom-0 left-0 w-full h-12 bg-white skew-y-3"></div>
+  {/* Right Section: Profile Image */}
+  <div className="flex-1 flex justify-center">
+    <img
+      src="https://media.licdn.com/dms/image/v2/D5603AQHuipcZfSkjCA/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1726917248159?e=1746057600&v=beta&t=SZMUQoFc75YL9MpJGVqTUQEik8nEExuYkpTlMSBIFHA" 
+      alt="Rajesh Lingala"
+      className="w-[450px] h-[450px] rounded-full border-4 border-bg-blue-900 shadow-lg"
+    />
+  </div>
 </section>
+
 
 
       {/* About Me Section */}
       <section className="p-10 text-center relative bg-blue-700">
         <h2 className="text-3xl font-semibold">About Me</h2>
-        <p className="mt-4">This is a short description about yourself.</p>
-        {/* White Subtraction Gap */}
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-white skew-y-2"></div>
+        <p className="mt-4">TRajesh, you're a dedicated and detail-oriented developer who is passionate about building structured, well-designed projects. Your focus on career counseling solutions, alumni networking, and your personal portfolio website shows your commitment to impactful tech solutions. You have a strong preference for organized code, smooth UI/UX, and secure, scalable backend systems.
+
+You're also meticulous about animations and styling, ensuring everything aligns with your vision. From hackathons to IoT projects, you take on challenges with a structured and strategic approach. Your portfolio is shaping up to be a well-crafted, professional piece that reflects your expertise. Keep up the great work! 🚀</p>
+  
       </section>
 
       {/* Skills Section */}
@@ -50,8 +53,7 @@ const Homepage = () => {
           <div className="p-4 bg-blue-600 rounded-xl">Tailwind CSS</div>
           <div className="p-4 bg-blue-600 rounded-xl">JavaScript</div>
         </div>
-        {/* White Subtraction Gap */}
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-white skew-y-2"></div>
+
       </section>
 
       {/* Experience Section */}
@@ -67,8 +69,7 @@ const Homepage = () => {
             <p>Role | Year - Year</p>
           </div>
         </div>
-        {/* White Subtraction Gap */}
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-white skew-y-2"></div>
+
       </section>
     </div>
   );

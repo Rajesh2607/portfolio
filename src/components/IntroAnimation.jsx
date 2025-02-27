@@ -14,7 +14,7 @@ const IntroAnimation = ({ onFinish }) => {
         setIsVisible(false);
         localStorage.setItem("hasVisited", "true"); // Save visit status
         onFinish();
-      }, 3000); // Animation duration
+      }, 4000); // Animation duration
     }
   }, [onFinish]);
 
@@ -23,11 +23,35 @@ const IntroAnimation = ({ onFinish }) => {
   return (
     <motion.div
       className="intro-container"
-      initial={{ opacity: 1, scale: 1 }}
-      animate={{ opacity: 0, scale: 1.2 }}
-      transition={{ duration: 3.5 }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
+      transition={{ duration: 2 }}
     >
-      <h1 className="intro-text">Welcome to <br/>Rajesh Lingala's Portfolio</h1>
+      {/* Background Video */}
+      <motion.video
+        className="intro-video"
+        src="/path-to-your-video.mp4" // Replace with actual video path
+        autoPlay
+        muted
+        playsInline
+        loop={false} // Stops after playing once
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 2, delay: 2 }} // Fades out after 2s
+      />
+
+      {/* Animated Text */}
+      <motion.h1
+        className="intro-text"
+        initial={{ opacity: 1, scale: 1 }}
+        animate={{ opacity: 0, scale: 1.2 }}
+        transition={{ duration: 2 }}
+      >
+        <center>
+          Welcome <br /> to <br />
+        </center>
+        Rajesh Lingala's Portfolio
+      </motion.h1>
     </motion.div>
   );
 };
